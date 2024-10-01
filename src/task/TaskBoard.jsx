@@ -17,10 +17,10 @@ export default function TaskBoard() {
     const [tasks, setTasks] = useState([defaultTask]);
     const [showAddModal, setShowAddModal] = useState(false)
 
-    const handleAddTask = () => {
-        console.log('task add')
-
-    }
+    const handleAddTask = (newTask) => {
+        const updatedTask = { ...newTask, id: crypto.randomUUID(), isFavorite: false };
+        setTasks(prevTasks => [...prevTasks, updatedTask]);
+    };
 
     return (
         <section className="mb-20" id="tasks">
